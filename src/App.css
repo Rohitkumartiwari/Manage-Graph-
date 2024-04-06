@@ -6,7 +6,133 @@
   height: 40vmin;
   pointer-events: none;
 }
-
+.login_wrapper
+{
+  padding: 30px;
+  
+}
+.login_card_wrapper
+{
+  border: 1px solid gray;
+  padding: 30px;
+  border-radius: 10px;
+}
+.add_btnn
+{
+  background-color:#002266 ;
+  color: white;
+  border-radius: 5px;
+  padding: 8px 18px;
+}
+.text-blue
+{
+  color: #002266;
+}
+.add_btnnn
+{
+  background-color:#002266 ;
+  color: white;
+  border-radius: 5px;
+  padding: 8px 18px;
+  border: none;
+}
+.delete_btnnn
+{
+  background-color:red ;
+  color: white;
+  border-radius: 5px;
+  padding: 8px 18px;
+ border: none;
+}
+.input_text
+{
+  width: 100%;
+  background-color: pink;
+  border: 1px;
+  padding: 12px;
+}
+.border-bottom
+{
+  border-bottom: 1px solid gray;
+  height: 5px;
+}
+.merge_graph_input
+{
+  border: 1px solid #E8E8E8;
+  padding: 8px 5px;
+}
+.input_text:focus {
+  outline: none;
+}
+.cursor-pointer
+{
+  cursor: pointer;
+}
+.login_button
+{
+  background-color: #010534;
+  padding: 10px 30px;
+  color: white;
+  width: 100%;
+}
+.add_btn
+{
+  border: 1px solid #06D6A0 !important;
+  border-radius: 16px;
+  background-color: #06D6A0;
+  color: white;
+  padding: 4px 15px;
+}
+.price-card
+{
+  border: 1px solid #dcd9d9;
+  border-radius: 10px;
+  padding: 15px 10px;
+}
+.cards_color
+{
+  background-color: #F9F8FF;
+  padding:5px  20px;
+}
+.cards_colorr
+{
+  background-color: #f4f2f2;
+  padding:5px  20px;
+}
+.text-gray
+{
+  color: rgb(63, 62, 62);
+}
+.view-graph-header-card
+{
+  border: 1px solid gray;
+  padding: 5px;
+  background-color: #002266;
+}
+.view-graph-header-card1
+{
+  border: 1px solid gray;
+  padding: 5px;
+  
+}
+.font-2
+{
+  font-size: 13px;
+  font-weight: 500;
+}
+.font-3
+{
+  font-size: 14px;
+  
+}
+.delete_btn
+{
+  border: 1px solid red !important;
+  border-radius: 16px;
+  background-color: red;
+  color: white;
+  padding: 4px 15px; 
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
