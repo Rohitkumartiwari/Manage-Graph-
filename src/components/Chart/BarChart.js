@@ -1,31 +1,54 @@
 import React, { useEffect, useRef } from "react"
 import { Chart, } from "chart.js"
 import { format } from "date-fns"
-const LineChart = ({ yearlyData}) => {
+const BarChart = ({ yearlyData}) => {
+    console.log(yearlyData,"yearlyData")
     const canvas = useRef(null)
     useEffect(() => {
         const labels = yearlyData.map(item => format(item.date, 'MMMM dd, yyyy'))
         const data = {
-            labels: labels,
+            labels:labels,
             datasets: [{
-                label: 'My First Dataset',
+                label: 'Price Range',
                 data: yearlyData.map(item => item.price),
                 fill: true,
-                borderColor: 'rgb(75, 192, 192)',
+                
                 tension: 0.1,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+      'rgba(255, 159, 64, 0.2)',
+      'rgba(255, 205, 86, 0.2)',
+      'rgba(75, 192, 192, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(153, 102, 255, 0.2)',
+      'rgba(201, 203, 207, 0.2)'
+                  ],
+                  borderColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(255, 159, 64)',
+                    'rgb(255, 205, 86)',
+                    'rgb(75, 192, 192)',
+                    'rgb(54, 162, 235)',
+                    'rgb(153, 102, 255)',
+                    'rgb(201, 203, 207)'
+                  ],
+                  borderWidth: 1,
                 fill: {
                     target: 'origin',
-                    above: 'transparent',
+                    
                 }
 
-            }]
+            }],
+            
         };
         if (canvas.current) {
-            const LineChart = new Chart(canvas.current, {
-                type: 'line',
+            canvas.current.width=1000
+         
+            
+            const BarChart = new Chart(canvas.current, {
+                type: 'bar',
                 data,
                 options: {
-                    maintainAspectRatio: false,
                     responsive: true,
                     plugins: {
                         title: {
@@ -54,7 +77,7 @@ const LineChart = ({ yearlyData}) => {
             })
 
             return (() => {
-                LineChart.destroy()
+                BarChart.destroy()
             })
         }
     }, [canvas.current, yearlyData])
@@ -63,9 +86,9 @@ const LineChart = ({ yearlyData}) => {
            
 
 
-            <canvas width={700} ref={canvas}></canvas>
+            <canvas  ref={canvas}></canvas>
         </div>
     )
 }
 
-export default LineChart
+export default BarChart
