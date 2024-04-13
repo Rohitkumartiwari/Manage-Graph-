@@ -59,7 +59,7 @@ const DashbaordCharts = () => {
                     </div>
                   </div>
                   <div className="col-8">
-                    <h3 className="mb-0 font-commom">{ dataValue}</h3>
+                    <h3 className="mb-0 font-commom">{ dataValue?dataValue:1}</h3>
                     <div className="mb-0 font-commom-2">Selected Item</div>
                   </div>
                 </div>
@@ -78,7 +78,7 @@ const DashbaordCharts = () => {
                     </div>
                   </div>
                   <div className="col-8">
-                    <h3 className="mb-0 font-commom">{ sum-dataValue}</h3>
+                    <h3 className="mb-0 font-commom">{ dataValue?sum-dataValue:1}</h3>
                     <div className="mb-0 font-commom-2">Price Diffrence</div>
                   </div>
                 </div>
