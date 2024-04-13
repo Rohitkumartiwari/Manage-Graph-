@@ -19778,7 +19778,6 @@ screen and (-ms-high-contrast:active) {
     position: fixed;
     top: 0;
     left: 0;
-    width: 370px;
     overflow-y: auto;
 }
 

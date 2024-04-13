@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react"
 import { Chart, } from "chart.js"
 import { format } from "date-fns"
-const BarChart = ({ yearlyData}) => {
+const BarChart = ({ yearlyData,setDataValue}) => {
     console.log(yearlyData,"yearlyData")
     const canvas = useRef(null)
     useEffect(() => {
@@ -70,6 +70,15 @@ const BarChart = ({ yearlyData}) => {
                         },
                         line: {
                             borderCapStyle: "round"
+                        }
+                    },
+                    onClick: (event, elements) => {
+                        if (elements.length > 0) {
+                            const clickedIndex = elements[0].index;
+                            const clickedPrice = yearlyData[clickedIndex].price;
+                            setDataValue(clickedPrice);
+                            console.log("Clicked Price:", clickedPrice);
+                            // Do whatever you want with the clicked price value
                         }
                     }
 

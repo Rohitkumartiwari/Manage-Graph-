@@ -13,8 +13,9 @@ import PolarChart from "./components/Chart/PolarChart";
 import BarChart from "./components/Chart/BarChart";
 import LineChart from "./components/Chart/LineChart";
 import DoughnutChart from "./components/Chart/Doughnut";
+import NewDoughnutChart from "./components/Chart/NewDoughnit";
 const chartComps = {
-  1: <BarChart />,
+  1: <BarChart  />,
   2:<DoughnutChart/>,
   3:<PolarChart/>,
   4:<LineChart/>
@@ -22,11 +23,14 @@ const chartComps = {
 const DashbaordCharts = () => {
   const { setCharts, charts } = useCharContext();
   const [selectChart, setSelectChart] = useState(1);
+  const [dataValue, setDataValue] = useState();
+ 
+  const sum = charts?.[0]?.stats.reduce((total, item) => total + parseInt(item.price), 0);
 
   return (
     <div className="py-4">
       <div className="row mx-0">
-        {/* <div className="col-md-3">
+        <div className="col-md-4">
           <div className="card flex-fill common-card round-border box-darked">
             <div className="card-body py-4">
               <div className="row align-items-center ">
@@ -37,14 +41,14 @@ const DashbaordCharts = () => {
                 </div>
 
                 <div className="col-8">
-                  <h3 className="mb-0 font-commom">1</h3>
-                  <div className="mb-0 font-commom-2">Today Lead</div>
+                  <h3 className="mb-0 font-commom">{ sum?sum:1}</h3>
+                  <div className="mb-0 font-commom-2">Total Price</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="col-md-3">
+        <div className="col-md-4">
           <div className="card flex-fill common-card round-border box-green">
             <div className="card-body py-4">
               <a href="/tata-play-list">
@@ -55,15 +59,15 @@ const DashbaordCharts = () => {
                     </div>
                   </div>
                   <div className="col-8">
-                    <h3 className="mb-0 font-commom">1</h3>
-                    <div className="mb-0 font-commom-2">Total Lead</div>
+                    <h3 className="mb-0 font-commom">{ dataValue}</h3>
+                    <div className="mb-0 font-commom-2">Selected Item</div>
                   </div>
                 </div>
               </a>
             </div>
           </div>
         </div>
-        <div className="col-md-3">
+        <div className="col-md-4">
           <div className="card flex-fill common-card round-border box-darkblue">
             <div className="card-body py-4">
               <a href={`/tata-play-list?dispositiontype=Connected`}>
@@ -74,15 +78,15 @@ const DashbaordCharts = () => {
                     </div>
                   </div>
                   <div className="col-8">
-                    <h3 className="mb-0 font-commom">1</h3>
-                    <div className="mb-0 font-commom-2">Total Connected</div>
+                    <h3 className="mb-0 font-commom">{ sum-dataValue}</h3>
+                    <div className="mb-0 font-commom-2">Price Diffrence</div>
                   </div>
                 </div>
               </a>
             </div>
           </div>
         </div>
-        <div className="col-md-3">
+        {/* <div className="col-md-3">
           <div className="card flex-fill common-card round-border box-orange">
             <div className="card-body py-4">
               <a href={`/tata-play-list?dispositiontype=Not_Connected`}>
@@ -134,12 +138,16 @@ const DashbaordCharts = () => {
                     title: item.title,
                     des: item?.des,
                     yearlyData: item?.stats,
+                    setDataValue: setDataValue
                   })}
                 </div>
               </div>
             </div>
           );
         })}
+        <div className="col-md-6">
+          <NewDoughnutChart dataValue={dataValue} totalSum={ sum} /> 
+  </div>
       </div>
     </div>
   );
